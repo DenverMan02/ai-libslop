@@ -2,7 +2,10 @@
 
 #include "GameObject.h"
 #include "BoardEntity.h"
-#include <Sexy/Rect.h>
+#include "SexyTypes.h"
+
+using Sexy::Rect;
+using Sexy::FRect;
 
 enum BoardRegionFlags {
 	region_deepwater = 1,
@@ -17,8 +20,8 @@ public:
 	Sexy::FRect m_region;
 	int unk;
 
-	virtual void SetRegionFromGridSquare(const Rect& rect) {
-		CallFunc<void, BoardRegion*, const Rect*>(0x729C48, this, &rect);
+	virtual void SetRegionFromGridSquare(const Sexy::Rect& rect) {
+		CallFunc<void, BoardRegion*, const Sexy::Rect*>(0x729C48, this, &rect);
 	}
 
 	virtual void Function13() {}
@@ -35,7 +38,7 @@ public:
 		return CallFunc<Sexy::RtClass*>(0x6854F0);
 	}
 
-	void SetRegionFromGridSquare(const Rect& rect) override {
-		CallFunc<void, BoardRegionTideWater*, const Rect*>(0x729C48, this, &rect);
+	void SetRegionFromGridSquare(const Sexy::Rect& rect) override {
+		CallFunc<void, BoardRegionTideWater*, const Sexy::Rect*>(0x729C48, this, &rect);
 	}
 };
