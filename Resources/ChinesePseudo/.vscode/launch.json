@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "Build&Run",
+            "program": "/nvmeFAT/app_process64",
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/nvmeFAT/gdb/gdb",
+            "miDebuggerServerAddress": "192.168.0.101:1234",
+            "additionalSOLibSearchPath": "${workspaceFolder}/example/obj/local/arm64-v8a",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                },
+                {
+                    "text": "handle SIGBUS nostop noprint pass",
+                    "ignoreFailures": true
+                },
+                {
+                    "text": "handle SIGSEGV nostop noprint pass",
+                    "ignoreFailures": true
+                },
+                {
+                    "text": "set debuginfod urls ",
+                    "ignoreFailures": true
+                },
+                {
+                    "text": "set sysroot /",
+                    "ignoreFailures": true
+                },
+            ]
+        }
+    ]
+}

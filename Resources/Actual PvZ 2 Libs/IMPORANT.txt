@@ -1,0 +1,1 @@
+SnowieLib will be here for now until it becomes properly open sourced

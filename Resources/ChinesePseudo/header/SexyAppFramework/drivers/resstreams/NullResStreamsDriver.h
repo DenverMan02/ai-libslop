@@ -1,0 +1,7 @@
+#ifndef NULLRESSTREAMSDRIVER_H_INCLUDED
+#define NULLRESSTREAMSDRIVER_H_INCLUDED
+
+
+#include "IResStreamsDriver.h"
+
+#endif

@@ -1,0 +1,1 @@
+C:\Users\map220v\AppData\Local\Android\Sdk\ndk\android-ndk-r10e\ndk-build.cmd TARGET=arm64-v8a EXT_DEBUG=1

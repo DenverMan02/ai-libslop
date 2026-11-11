@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/example"
+            },
+            "command": "sh build.sh",
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build&Run",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/example"
+            },
+            "command": "sh Arun.sh",
+            "dependsOn": [ "Build" ]
+        }
+    ]
+}

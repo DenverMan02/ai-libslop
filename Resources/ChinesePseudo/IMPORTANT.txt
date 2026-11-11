@@ -1,0 +1,1 @@
+2c is based on OLD pvz2, meaning a lot of vanilla has been reformatted since then, but it's still useful for understanding roughly how things work from the Chinese version

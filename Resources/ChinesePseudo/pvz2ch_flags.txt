@@ -1,0 +1,16 @@
+Android NDK r10e
+
+NDK_TOOLCHAIN_VERSION := 4.9
+APP_STL := gnustl_static
+APP_PLATFORM := android-14 #android-21 if arm64-v8a
+APP_CPPFLAGS := -std=c++11 -fsigned-char
+
+arm64-v8a:
+CFLAGS = -DANDROID -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -DWANTS_RENDER_TARGET_ALPHA_DISABLED -ffast-math -DOPTIMIZE_ANIM_DRAW -DNDEBUG -DRELEASEFINAL -DRELEASE_FINAL -DWANTS_CHEATS_DISABLED -O2 -fPIC -flto -fno-inline -fno-omit-frame-pointer -fmove-loop-invariants -freg-struct-return -fno-rtti -fno-exceptions -DWANTS_USE_HIGH_RESOURCE -DLUA_COMPILE -D_USE_WIDE_STRING=1 -DGL_GLEXT_PROTOTYPES -D_STLP_HAS_WCHAR_T -ffunction-sections -fdata-sections
+CPPFLAGS = -std=gnu++11 -Wno-invalid-offsetof -DWANTS_PRIMETEXT -DWIDGETS_USE_PRIMETEXT -DPRIME_FOR_PVZ2 -DWANTS_WWISE_ENABLED
+LDFLAGS = -Wl,--gc-sections
+
+armeabi-v7a:
+CFLAGS = -DANDROID -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -DWANTS_RENDER_TARGET_ALPHA_DISABLED -ffast-math -DOPTIMIZE_ANIM_DRAW -DNDEBUG -DRELEASEFINAL -DRELEASE_FINAL -DWANTS_CHEATS_DISABLED -O2 -fPIC -flto -fno-inline -fno-omit-frame-pointer -fprefetch-loop-arrays -fmove-loop-invariants -freg-struct-return -fno-rtti -fno-exceptions -DWANTS_USE_HIGH_RESOURCE -DLUA_COMPILE -D_USE_WIDE_STRING=1 -DGL_GLEXT_PROTOTYPES -D_STLP_HAS_WCHAR_T -ffunction-sections -fdata-sections
+CPPFLAGS = -std=gnu++11 -Wno-invalid-offsetof -DWANTS_PRIMETEXT -DWIDGETS_USE_PRIMETEXT -DPRIME_FOR_PVZ2 -DWANTS_WWISE_ENABLED
+LDFLAGS = -Wl,--gc-sections,--icf=safe
