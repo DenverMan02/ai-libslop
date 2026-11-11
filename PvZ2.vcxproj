@@ -164,6 +164,7 @@
     <ClCompile Include="And64InlineHook.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MemUtils.cpp" />
+    <ClCompile Include="PoolStage.cpp" />
     <ClCompile Include="PvZ2\CustomUpgrades.cpp" />
     <ClCompile Include="PvZ2\Chairracer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">false</ExcludedFromBuild>
@@ -283,6 +284,7 @@
     <ClInclude Include="Main.h" />
     <ClInclude Include="MemUtils.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PoolStage.h" />
     <ClInclude Include="PvZ2\AddGridItemType.h" />
     <ClInclude Include="PvZ2\AddPlantType.h" />
     <ClInclude Include="PvZ2\AddProjectileType.h" />
@@ -292,6 +294,7 @@
     <ClInclude Include="PvZ2\AudioMgr.h" />
     <ClInclude Include="PvZ2\Board.h" />
     <ClInclude Include="PvZ2\BoardEntity.h" />
+    <ClInclude Include="PvZ2\BoardRegion.h" />
     <ClInclude Include="PvZ2\CustomUpgrades.h" />
     <ClInclude Include="PvZ2\Chairracer.h" />
     <ClInclude Include="PvZ2\ChomperProps.h" />

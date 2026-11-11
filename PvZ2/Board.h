@@ -254,6 +254,11 @@ public:
 		return CallFunc<Collectable*, Board*, SexyString, Sexy::SexyVector2>(0xAA4180, this, collectable, position);
 	}
 
+	template <typename T>
+	T* AddRegion() {
+		return CallFunc<T*, Board*, Sexy::RtClass*>(0xAA1BD4, this, T::StaticGetClass());
+	}
+
 };
 
 static_assert(sizeof(Board) == 1864);
