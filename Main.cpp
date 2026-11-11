@@ -110,7 +110,7 @@
 #include <PvZ2/ZombieLadder.h>
 #include <PvZ2/Ladder.h>
 #include <PvZ2/CustomUpgrades.h>
-#include "PoolStage.h"
+#include <PvZ2/PoolStage.h>
 
 
 // TODO: Make every typedef function became a wrapper ig

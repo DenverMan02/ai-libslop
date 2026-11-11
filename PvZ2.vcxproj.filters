@@ -4,9 +4,13 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MemUtils.cpp" />
     <ClCompile Include="And64InlineHook.cpp" />
-    <ClCompile Include="PoolStage.cpp" />
+    <ClCompile Include="PvZ2\PoolStage.cpp">
+      <Filter>PvZ2</Filter>
+    </ClCompile>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="PoolStage.h" />
+    <ClInclude Include="PvZ2\PoolStage.h">
+      <Filter>PvZ2</Filter>
+    </ClInclude>
     <ClInclude Include="PvZ2\BoardRegion.h">
       <Filter>PvZ2</Filter>
     </ClInclude>
