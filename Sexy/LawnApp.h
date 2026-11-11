@@ -26,7 +26,10 @@ public:
 	Board* m_board;
 	char pad6[8];
 	float m_contentResolutionWidth;
-	float m_contentResolutionHeight;
+	union {
+		float m_contentResolutionHeight;
+		float m_unkResValue;
+	};
 	char pad7[136];
 	void* m_worldMap; //WorldMap*
 

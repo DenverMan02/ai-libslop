@@ -242,6 +242,10 @@ public:
 		return CallFunc<Board*>(0xCE4D8C);
 	}
 
+	LevelModuleManager* GetLevelModuleManager() {
+		return m_levelModuleManager;
+	}
+
 	void ChangeState(int newState) {
 		CallFunc<void, Board*, int>(0x71B1AC, this, newState); //TODO ADDR
 	}

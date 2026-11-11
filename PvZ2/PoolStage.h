@@ -1,8 +1,13 @@
 #pragma once
+#include "SexyTypes.h"
+#include <Sexy/RtWeakPtr.h>
 #include "Reflection/CRefManualSymbolBuilder.h"
 #include "StageModule.h"
 #include "Effect_PopAnim.h"
 #include <Reflection/ReflectionBuilder.h>
+
+using Sexy::Color;
+using Sexy::RtWeakPtr;
 
 class PoolStage : public StageModule {
 public:

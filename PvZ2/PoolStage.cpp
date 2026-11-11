@@ -1,10 +1,18 @@
+#include "pch.h"
+#include <cfloat>
 #include "PoolStage.h"
+#include "PopAnimRig.h"
 #include "Board.h"
 #include "BoardRegion.h"
 #include "Sexy/LawnApp.h"
 #include "LevelModuleManager.h"
 
 #include <Sexy/Delegate.h>
+
+using Sexy::make_delegate;
+using Sexy::Rect;
+using Sexy::Color;
+using Sexy::RtWeakPtr;
 
 void* PoolStage::vftable = nullptr;
 Sexy::RtClass* PoolStage::s_rtClass = nullptr;
