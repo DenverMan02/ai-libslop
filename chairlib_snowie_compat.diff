@@ -1,0 +1,146 @@
+--- a/Main.cpp
++++ b/Main.cpp
+@@ -889,23 +889,33 @@
+     //PVZ2HookFunction(0x11F72B0, (void*)hkNPCDataSheetCtor, (void**)&oNPCDataSheetCtor);
+     // i should make softcode boss icon as level module xd
+     //PVZ2HookFunction(0x540938, (void*)hkBossProgressMeterInit, (void**)&oBossProgressMeterInit);
+-    PVZ2HookFunction(0xC6D080, (void*)hkPlantTypeCtor, (void**)&oPlantTypeCtor);
+-    PVZ2HookFunction(0x11797B4, (void*)hkCreatePlantNameMapper, (void**)&oPlantNameMapperCtor);
+-    PVZ2HookFunction(0x10680BC, (void*)hkZombieTypeCtor, (void**)&oZombieTypeCtor);
+-    PVZ2HookFunction(0x14665C4, (void*)hkCreateZombieTypenameMap, (void**)&oZombieAlmanacCtor);
+-
+-    PVZ2HookFunction(0xC6D080, (void*)PlantType::construct, (void**)&PlantType::oPlantTypeConstruct);
+-    PVZ2HookFunction(0xC6BF48, (void*)PlantType::buildSymbols, (void**)&PlantType::oPlantTypeBuildSymbols);
+-    PVZ2HookFunction(0x10680BC, (void*)ZombieType::construct, (void**)&ZombieType::oZombieTypeConstruct);
+-    PVZ2HookFunction(0x106828C, (void*)ZombieType::buildSymbols, (void**)&ZombieType::oZombieTypeBuildSymbols);
++    // SNOWIELIB COMPAT: disabled PlantType constructor hook.
++    //PVZ2HookFunction(0xC6D080, (void*)hkPlantTypeCtor, (void**)&oPlantTypeCtor);
++    // SNOWIELIB COMPAT: disabled PlantNameMapper hook.
++    //PVZ2HookFunction(0x11797B4, (void*)hkCreatePlantNameMapper, (void**)&oPlantNameMapperCtor);
++    // SNOWIELIB COMPAT: disabled ZombieType constructor hook.
++    //PVZ2HookFunction(0x10680BC, (void*)hkZombieTypeCtor, (void**)&oZombieTypeCtor);
++    // SNOWIELIB COMPAT: disabled ZombieAlmanac typename-map hook.
++    //PVZ2HookFunction(0x14665C4, (void*)hkCreateZombieTypenameMap, (void**)&oZombieAlmanacCtor);
++
++    // SNOWIELIB COMPAT: disabled PlantType reflection constructor hook.
++    //PVZ2HookFunction(0xC6D080, (void*)PlantType::construct, (void**)&PlantType::oPlantTypeConstruct);
++    // SNOWIELIB COMPAT: disabled PlantType reflection BuildSymbols hook.
++    //PVZ2HookFunction(0xC6BF48, (void*)PlantType::buildSymbols, (void**)&PlantType::oPlantTypeBuildSymbols);
++    // SNOWIELIB COMPAT: disabled ZombieType reflection constructor hook.
++    //PVZ2HookFunction(0x10680BC, (void*)ZombieType::construct, (void**)&ZombieType::oZombieTypeConstruct);
++    // SNOWIELIB COMPAT: disabled ZombieType reflection BuildSymbols hook.
++    //PVZ2HookFunction(0x106828C, (void*)ZombieType::buildSymbols, (void**)&ZombieType::oZombieTypeBuildSymbols);
+     PVZ2HookFunction(0xC136A4, (void*)ZombiePropertySheet::construct, (void**)&ZombiePropertySheet::oZombiePropsConstruct);
+     PVZ2HookFunction(0xDA69D4, (void*)ZombiePropertySheet::buildSymbols, (void**)&ZombiePropertySheet::oZombiePropsBuildSymbols);
+ 
+     PVZ2HookFunction(0xC4987C, (void*)hkEffectCondition, (void**)&oEffCond);
+     PVZ2HookFunction(0xC4BC48, (void*)hkRemoveEffectCondition, (void**)&oRemoveEffCond);
+     PVZ2HookFunction(0x677B40, (void*)hkZombieConditionTrackerUpdate, (void**)&oZombieConditionTrackerUpdate);
+-    PVZ2HookFunction(0xA9E25C, (void*)hkBoardWaveFunc, (void**)&oBoardWaveFunc);
+-    PVZ2HookFunction(0xC1D1FC, (void*)hkInitZombiePianoList, (void**)&oInitZombiePianoList);
++    // SNOWIELIB COMPAT: disabled Board Wave hook.
++    //PVZ2HookFunction(0xA9E25C, (void*)hkBoardWaveFunc, (void**)&oBoardWaveFunc);
++    // SNOWIELIB COMPAT: disabled Piano list hook.
++    //PVZ2HookFunction(0xC1D1FC, (void*)hkInitZombiePianoList, (void**)&oInitZombiePianoList);
+     PVZ2HookFunction(0xAA0C40, (void*)hkBoardRender, (void**)&oBoardRender);
+     PVZ2HookFunction(0x1273244, (void*)hkFire, (void**)&oFire);
+     PVZ2HookFunction(0x1001C04, (void*)hkFixTeleportatoMineTeleport, (void**)&oTeleportatoMineTeleport);
+--- a/PvZ2/ZombieCamel.cpp
++++ b/PvZ2/ZombieCamel.cpp
+@@ -148,41 +148,63 @@
+ 
+ void ZombieCamelProps::modInit() {
+     LOGI("init Camel class");
+-    PVZ2HookFunction(0xC02C70, (void*)GetSegmentName, nullptr);
+-    PVZ2HookFunction(0xC02CA0, (void*)GetZombieTypeName, nullptr);
+-    PVZ2HookFunction(0xC02CC8, (void*)GetZombieTypeName, nullptr);
+-    PVZ2HookFunction(0xB162A8, (void*)ZombieCamelOnSpawn, nullptr);
+-    PVZ2HookFunction(0xB170D0, (void*)CamelApplyArmor, nullptr);
+-    PVZ2HookFunction(0xB16A9C, (void*)CamelOnPlaceOnStreet, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xC02C70, (void*)GetSegmentName, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xC02CA0, (void*)GetZombieTypeName, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xC02CC8, (void*)GetZombieTypeName, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xB162A8, (void*)ZombieCamelOnSpawn, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xB170D0, (void*)CamelApplyArmor, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xB16A9C, (void*)CamelOnPlaceOnStreet, nullptr);
+     //Roman
+-    PVZ2HookFunction(0xC10498, (void*)GetSegmentName, nullptr);
+-    PVZ2HookFunction(0xC104F8, (void*)GetZombieTypeName, nullptr);
+-    PVZ2HookFunction(0xC10520, (void*)GetZombieTypeName, nullptr);
+-    PVZ2HookFunction(0xBDEDF8, (void*)ZombieCamelOnSpawn, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xC10498, (void*)GetSegmentName, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xC104F8, (void*)GetZombieTypeName, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xC10520, (void*)GetZombieTypeName, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xBDEDF8, (void*)ZombieCamelOnSpawn, nullptr);
+     //LNY
+-    PVZ2HookFunction(0xC02D54, (void*)GetSegmentName, nullptr);
+-    PVZ2HookFunction(0xC02D8C, (void*)GetZombieTypeName, nullptr);
+-    PVZ2HookFunction(0xC02DB4, (void*)GetZombieTypeName, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xC02D54, (void*)GetSegmentName, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xC02D8C, (void*)GetZombieTypeName, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xC02DB4, (void*)GetZombieTypeName, nullptr);
+     LOGI("init Camel class complete");
+     LOGI("init Camel props");
+-    PVZ2HookFunction(0xDAB6D8, (void*)StaticGetType, (void**)&oGetType);
+-    PVZ2HookFunction(0xDAB808, (void*)ZombieCamelProps::RegisterClass, nullptr);
+-    PVZ2HookFunction(0xDAB8D0, (void*)ZombieCamelProps::BuildSymbols, (void**)&ZombieCamelProps::oZombieCamelPropsBuildSymbols);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xDAB6D8, (void*)StaticGetType, (void**)&oGetType);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xDAB808, (void*)ZombieCamelProps::RegisterClass, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xDAB8D0, (void*)ZombieCamelProps::BuildSymbols, (void**)&ZombieCamelProps::oZombieCamelPropsBuildSymbols);
+     ZombieCamelProps::StaticGetType();
+     LOGI("init Camel props complete");
+     LOGI("finish init Camel");
+ }
+ void ZombieCamelTouchProps::modInit() {
+     LOGI("init CamelTouch class");
+-    PVZ2HookFunction(0xB18DC4, (void*)hkCamelZombieFunc, nullptr);
+-    PVZ2HookFunction(0xB1BDBC, (void*)GetSegmentTouchName, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xB18DC4, (void*)hkCamelZombieFunc, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xB1BDBC, (void*)GetSegmentTouchName, nullptr);
+     LOGI("init CamelTouch class complete");
+     LOGI("init CamelTouch props");
+-    PVZ2HookFunction(0xDABED8, (void*)StaticGetType, (void**)&oTGetType);
+-    PVZ2HookFunction(0xDABF40, (void*)construct, nullptr);
+-    PVZ2HookFunction(0xDABFCC, (void*)ZombieCamelTouchProps::RegisterClass, nullptr);
+-    PVZ2HookFunction(0xDAC09C, (void*)ZombieCamelTouchProps::BuildSymbols, (void**)&ZombieCamelTouchProps::oZombieCamelTouchPropsBuildSymbols);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xDABED8, (void*)StaticGetType, (void**)&oTGetType);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xDABF40, (void*)construct, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xDABFCC, (void*)ZombieCamelTouchProps::RegisterClass, nullptr);
++    // SNOWIELIB COMPAT: Camel hook disabled.
++    //PVZ2HookFunction(0xDAC09C, (void*)ZombieCamelTouchProps::BuildSymbols, (void**)&ZombieCamelTouchProps::oZombieCamelTouchPropsBuildSymbols);
+     ZombieCamelTouchProps::StaticGetType();
+     LOGI("init CamelTouch props complete");
+     LOGI("finish init CamelTouch");
+-}+}
+--- a/PvZ2.vcxproj
++++ b/PvZ2.vcxproj
+@@ -99,7 +99,7 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+-    <IncludePath>D:\PVZ2 64bit lib\PvZ2;$(IncludePath)</IncludePath>
++    <IncludePath>$(ProjectDir);$(ProjectDir)PvZ2;$(IncludePath)</IncludePath>
+     <TargetName>libChair</TargetName>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
